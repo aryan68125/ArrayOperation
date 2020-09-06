@@ -65,6 +65,51 @@ for(int i =0;i<n;i++)
 return -1;
 }//Linear search closed
 
+int binarysearch(int arr[],int n, int element, int brr[]) // function to perform binary search the array must be sorted in ascending or desending order
+{
+	int temp=0;//temporary variable for sorting
+for(int i=0;i<n;i++)
+{
+brr[i] = arr[i];   //loop to copy arr array into brr array
+}
+
+for(int m=0;m<n-1;m++)  //bubble sorting logic in ascending order
+{
+	for(int j=m+1;j<n;j++)
+	{
+		if(brr[j]<brr[m])
+		{
+          temp=brr[m];
+          brr[m]=brr[j];
+          brr[j]=temp;
+		}
+	}
+}
+
+int low,mid,high;
+low=0;
+high=n-1;
+while(low<=high)
+{
+	mid = (low+high)/2;
+	if(brr[mid]==element)
+	{
+      return element;
+      break;
+	}
+	if(brr[mid]<element)
+	{
+		low=mid+1;
+	}
+	else
+	{
+		high=mid-1;
+	}
+
+}
+	return 0;
+}// binary sort ends
+
 void update(int arr[], int n, int position, int element) //update operation on array
 {
 	if(position<n) //position should be less than equal to number of elements inside the array
@@ -82,6 +127,8 @@ int main()
 {
 	int arr[100]; // declaring array of capacity to hold 100 elements
 
+	int brr[100]; // temporary array for bubble sorting
+
 	int size ; //number of elements to store inside the array
 
 	printf("Enter the number of Elements that is to be Entered inside the array\n");
@@ -98,6 +145,8 @@ int position; //define the position at which you want to insert the element
 
 int index; //index of array where the element is found in linear search
 
+int mid; //to hold the mid value returned by binary search function
+
 InputElements(arr,size); //calling function that will input the elements
 
 // menue loop 
@@ -106,8 +155,9 @@ printf("Press 1 to perform Traversal operation\n");
 printf("Press 2 to perform Insertion operation\n");
 printf("Press 3 to perform Deletion operation\n");
 printf("Press 4 to perform Linear Search operation\n");
-printf("Press 5 to perform Update operation\n");
-printf("Press 6 to exit the program\n");
+printf("Press 5 to perform Binary Search operation\n");
+printf("Press 6 to perform Update operation\n");
+printf("Press 7 to exit the program\n");
 scanf("%d", &ch);
 printf("\n");
 switch(ch)
@@ -151,6 +201,20 @@ else
 break;
 
 case 5:
+printf("Enter the element that is to be found inside the array\n");
+scanf("%d", &element);
+mid = binarysearch(arr,size,element,brr);
+if(mid == element)
+{
+	printf("%d is present in array\n", element);
+}
+else
+{
+	printf("%d is not present in array\n", element);
+}
+break;
+
+case 6:
 printf("Enter the element you want to insert inside the array\n");
 	scanf("%d", &element);
 	printf("Enter the position at which you want to insert the element inside the array\n");
@@ -158,7 +222,7 @@ printf("Enter the element you want to insert inside the array\n");
 update(arr, size, position, element);
 break;
 
-case 6:
+case 7:
 printf("Program Terminated\n");
 k=200;
 break;
