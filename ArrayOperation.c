@@ -49,6 +49,7 @@ else
 	printf("array position you entered does not hold any data\n");
 }
 
+printf("Deletion complete...\n");
 return 1;
 
 }//deletion closed
@@ -62,6 +63,7 @@ for(int i =0;i<n;i++)
     		return i;
     }
 }
+printf("Linear search complete\n");
 return -1;
 }//Linear search closed
 
@@ -107,6 +109,7 @@ while(low<=high)
 	}
 
 }
+printf("Binary search complete...\n");
 	return 0;
 }// binary sort ends
 
@@ -179,11 +182,27 @@ printf("\n");
 break;
 
 case 3:
-printf("Enter the position of the element in the array you want to Delete from the array\n");
-	scanf("%d", &position);
-Deletion(arr,size, position);
-size--;
-printf("\n");
+//printf("Enter the position of the element in the array you want to Delete from the array\n");
+	//scanf("%d", &position);
+//Deletion(arr,size, position);
+//size--;
+//printf("\n");
+
+printf("Enter the element that is to be deleted from the array\n");
+scanf("%d", &element);
+index = LinearSearch(arr,size,element);
+if(index != -1)
+{
+	printf("%d is found at position %d in array\n", element,index);
+	printf ("deleting %d from the array\n", element);
+	  Deletion(arr,size, index);
+      size--;
+      printf("\n");
+}
+else
+{
+	printf("%d not present in array\n",element);
+}
 break;
 
 case 4:
