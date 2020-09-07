@@ -160,7 +160,8 @@ printf("Press 3 to perform Deletion operation\n");
 printf("Press 4 to perform Linear Search operation\n");
 printf("Press 5 to perform Binary Search operation\n");
 printf("Press 6 to perform Update operation\n");
-printf("Press 7 to exit the program\n");
+printf("press 7 to show developer information\n");
+printf("Press 8 to exit the program\n");
 scanf("%d", &ch);
 printf("\n");
 switch(ch)
@@ -242,6 +243,13 @@ update(arr, size, position, element);
 break;
 
 case 7:
+printf(" Name :- Aditya Kumar\n");
+printf("Roll number:- 1901230100001\n");
+printf("Course:- B.Tech\n");
+printf("Stream:- Computer science\n");
+break;
+
+case 8:
 printf("Program Terminated\n");
 k=200;
 break;
