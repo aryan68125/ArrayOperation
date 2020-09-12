@@ -218,6 +218,7 @@ else
 {
 	printf("%d not present in array\n",element);
 }
+printf("\n");
 break;
 
 case 5:
@@ -232,6 +233,7 @@ else
 {
 	printf("%d is not present in array\n", element);
 }
+printf("\n");
 break;
 
 case 6:
@@ -240,6 +242,7 @@ printf("Enter the element you want to insert inside the array\n");
 	printf("Enter the position at which you want to insert the element inside the array\n");
 	scanf("%d", &position);
 update(arr, size, position, element);
+printf("\n");
 break;
 
 case 7:
@@ -247,15 +250,18 @@ printf(" Name :- Aditya Kumar\n");
 printf("Roll number:- 1901230100001\n");
 printf("Course:- B.Tech\n");
 printf("Stream:- Computer science\n");
+printf("\n");
 break;
 
 case 8:
 printf("Program Terminated\n");
+printf("\n");
 k=200;
 break;
 
 default:
-printf("Wrong choice ...Please try again");
+printf("Wrong choice ...Please try again\n");
+printf("\n");
 break;
 
 }//switch closed
